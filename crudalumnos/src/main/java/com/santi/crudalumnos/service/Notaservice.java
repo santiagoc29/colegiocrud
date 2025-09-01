@@ -1,7 +1,7 @@
 package com.santi.crudalumnos.service;
 
 import com.santi.crudalumnos.entity.nota;
-import com.santi.crudalumnos.repository.notarepository;
+import com.santi.crudalumnos.repository.Notarepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,27 +9,27 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class notaservice {
+public class Notaservice {
 
     @Autowired
-    private notarepository notarepository;
+    private Notarepository notarepository;
 
-    // CREATE
+
     public nota savenota(nota nota) {
         return notarepository.save(nota);
     }
 
-    // READ ALL
+
     public List<nota> getAllnotas() {
         return notarepository.findAll();
     }
 
-    // READ BY ID
+
     public Optional<nota> getnotaById(Long id) {
         return notarepository.findById(id);
     }
 
-    // UPDATE
+
     public nota updatenota(Long id, nota notaDetails) {
         nota nota = notarepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Nota no encontrada con id: " + id));

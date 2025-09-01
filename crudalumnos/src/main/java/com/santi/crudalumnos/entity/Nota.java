@@ -12,12 +12,12 @@ public class nota {
 
     private Double valor;
 
-    // Relación con inscripción (una nota pertenece a una inscripción)
+
     @ManyToOne
     @JoinColumn(name = "id_inscripcion")
     private inscripcion inscripcion;
 
-    // Getters y Setters
+
     public Long getId_nota() {
         return id_nota;
     }

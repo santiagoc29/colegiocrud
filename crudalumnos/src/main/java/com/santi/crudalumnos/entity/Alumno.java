@@ -23,7 +23,7 @@ public class Alumno {
     @Column(name = "email", length = 255)
     private String email;
 
-    // Constructores
+
     public Alumno() {}
 
     public Alumno(String nombre, String apellido, LocalDate fecha_nacimiento, String email) {
@@ -33,7 +33,7 @@ public class Alumno {
         this.email = email;
     }
 
-    // Getters y Setters
+
     public Long getId_alumno() {
         return id_alumno;
     }

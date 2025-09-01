@@ -8,27 +8,27 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class alumnoservice {
+public class Alumnoservice {
 
     @Autowired
     private alumnorepository alumnorepository;
 
-    // CREATE - Guardar nuevo alumno
+
     public Alumno savealumno(Alumno alumno) {
         return alumnorepository.save(alumno);
     }
 
-    // READ - Obtener todos los alumnos
+
     public List<Alumno> getAllalumnos() {
         return alumnorepository.findAll();
     }
 
-    // READ - Obtener alumno por ID
+
     public Optional<Alumno> getalumnoById(Long id) {
         return alumnorepository.findById(id);
     }
 
-    // UPDATE - Actualizar alumno
+
     public Alumno updatealumno(Long id, Alumno alumnoDetails) {
         Alumno alumno = alumnorepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Alumno no encontrado con id: " + id));
@@ -41,7 +41,7 @@ public class alumnoservice {
         return alumnorepository.save(alumno);
     }
 
-    // DELETE - Eliminar alumno
+
     public void deletealumno(Long id) {
         alumnorepository.deleteById(id);
     }

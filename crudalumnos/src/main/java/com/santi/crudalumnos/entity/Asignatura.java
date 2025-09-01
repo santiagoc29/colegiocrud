@@ -13,12 +13,12 @@ public class asignatura {
     @Column(nullable = false, length = 255)
     private String nombre_asignatura;
 
-    // Relación con profesor (muchas asignaturas -> un profesor)
+
     @ManyToOne
     @JoinColumn(name = "id_profesor")
     private profesor profesor;
 
-    // Getters y Setters
+
     public Long getId_asignatura() {
         return id_asignatura;
     }

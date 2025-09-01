@@ -20,11 +20,11 @@ public class profesor {
     @Column(length = 255)
     private String email;
 
-    // Relación con Asignaturas (un profesor puede tener muchas asignaturas)
+
     @OneToMany(mappedBy = "profesor", cascade = CascadeType.ALL)
     private List<asignatura> asignaturas;
 
-    // Getters y Setters
+
     public Long getId_profesor() {
         return id_profesor;
     }

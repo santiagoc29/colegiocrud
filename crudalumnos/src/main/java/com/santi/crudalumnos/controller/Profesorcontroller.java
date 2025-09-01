@@ -1,7 +1,7 @@
 package com.santi.crudalumnos.controller;
 
 import com.santi.crudalumnos.entity.Profesor;
-import com.santi.crudalumnos.service.profesorservice;
+import com.santi.crudalumnos.service.Profesorservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,24 +11,24 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/profesores")
-public class profesorcontroller {
+public class Profesorcontroller {
 
     @Autowired
-    private profesorservice profesorservice;
+    private Profesorservice profesorservice;
 
-    // CREATE - Crear nuevo profesor
+
     @PostMapping
     public Profesor createprofesor(@RequestBody Profesor profesor) {
         return profesorservice.saveprofesor(profesor);
     }
 
-    // READ ALL - Obtener todos los profesores
+
     @GetMapping
     public List<Profesor> getAllprofesores() {
         return profesorservice.getAllprofesores();
     }
 
-    // READ BY ID - Obtener profesor por ID
+
     @GetMapping("/{id}")
     public ResponseEntity<Profesor> getProfesorById(@PathVariable Long id) {
         Optional<Profesor> profesor = profesorservice.getprofesorById(id);
@@ -36,7 +36,7 @@ public class profesorcontroller {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // UPDATE - Actualizar profesor
+
     @PutMapping("/{id}")
     public ResponseEntity<Profesor> updateProfesor(@PathVariable Long id, @RequestBody Profesor profesorDetails) {
         try {
@@ -47,6 +47,6 @@ public class profesorcontroller {
         }
     }
 
-    // DELETE - Eliminar profesor
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteprofesor(@PathVariable Long id

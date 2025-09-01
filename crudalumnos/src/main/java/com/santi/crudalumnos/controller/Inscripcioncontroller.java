@@ -1,7 +1,7 @@
 package com.santi.crudalumnos.controller;
 
 import com.santi.crudalumnos.entity.Inscripcion;
-import com.santi.crudalumnos.service.inscripcionservice;
+import com.santi.crudalumnos.service.Inscripcionservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,24 +11,24 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/inscripciones")
-public class inscripcioncontroller {
+public class Inscripcioncontroller {
 
     @Autowired
-    private inscripcionservice inscripcionservice;
+    private Inscripcionservice inscripcionservice;
 
-    // CREATE - Crear nueva inscripción
+
     @PostMapping
     public Inscripcion createinscripcion(@RequestBody Inscripcion inscripcion) {
         return inscripcionservice.saveinscripcion(inscripcion);
     }
 
-    // READ ALL - Obtener todas las inscripciones
+
     @GetMapping
     public List<Inscripcion> getAllinscripciones() {
         return inscripcionservice.getAllinscripciones();
     }
 
-    // READ BY ID - Obtener inscripción por ID
+
     @GetMapping("/{id}")
     public ResponseEntity<Inscripcion> getInscripcionById(@PathVariable Long id) {
         Optional<Inscripcion> inscripcion = inscripcionservice.getinscripcionById(id);
@@ -36,7 +36,7 @@ public class inscripcioncontroller {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // UPDATE - Actualizar inscripción
+
     @PutMapping("/{id}")
     public ResponseEntity<Inscripcion> updateInscripcion(@PathVariable Long id, @RequestBody Inscripcion inscripcionDetails) {
         try {
@@ -47,7 +47,7 @@ public class inscripcioncontroller {
         }
     }
 
-    // DELETE - Eliminar inscripción
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteinscripcion(@PathVariable Long id) {
         try {

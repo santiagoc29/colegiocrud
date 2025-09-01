@@ -11,19 +11,19 @@ public class inscripcion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_inscripcion;
 
-    // Relación con alumno (muchas inscripciones -> un alumno)
+
     @ManyToOne
     @JoinColumn(name = "id_alumno")
     private alumno alumno;
 
-    // Relación con asignatura (muchas inscripciones -> una asignatura)
+
     @ManyToOne
     @JoinColumn(name = "id_asignatura")
     private asignatura asignatura;
 
     private LocalDate fecha_inscripcion;
 
-    // Getters y Setters
+
     public Long getId_inscripcion() {
         return id_inscripcion;
     }
